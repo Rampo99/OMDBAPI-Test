@@ -27,6 +27,7 @@ Create table Attori (
 Codice INT NOT NULL AUTO_INCREMENT,
 ImdbID CHAR(9) NOT NULL,
 Nome VARCHAR(30) NOT NULL,
+Conta INT NOT NULL,
 PRIMARY KEY(Codice, ImdbID),
 FOREIGN KEY(ImdbID) REFERENCES Film(ImdbID)
 
@@ -37,8 +38,10 @@ Create table Lingue (
 Codice INT NOT NULL AUTO_INCREMENT,
 ImdbID CHAR(9) NOT NULL,
 Lingua VARCHAR(15) NOT NULL,
+Conta INT NOT NULL,
 PRIMARY KEY(Codice, ImdbID),
 FOREIGN KEY(ImdbID) REFERENCES Film(ImdbID)
+
 
 );
 
@@ -47,7 +50,26 @@ Create table Genere (
 Codice INT NOT NULL AUTO_INCREMENT,
 ImdbID CHAR(9) NOT NULL,
 Nome VARCHAR(15) NOT NULL,
+Conta INT NOT NULL,
 PRIMARY KEY(Codice, ImdbID),
 FOREIGN KEY(ImdbID) REFERENCES Film(ImdbID)
 
 );
+
+Create table Utente (
+
+Nome VARCHAR(20) NOT NULL,
+Cognome VARCHAR(20) NOT NULL,
+Etá INT NOT NULL,
+Cookie CHAR(8) NOT NULL,
+Id VARCHAR(16) NOT NULL,
+PRIMARY KEY(Id, Cookie)
+
+)
+
+Create table RicercaUtente (
+
+Id VARCHAR(16) NOT NULL,
+Conta INT NOT NULL,
+
+)
